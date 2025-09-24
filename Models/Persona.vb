@@ -2,6 +2,7 @@
     Private _nombre As String
     Private _apellido As String
     Private _edad As Integer
+
     Public Property Nombre As String
         Get
             Return _nombre
@@ -32,6 +33,10 @@
     Public Sub New()
         ' Constructor por defecto
         Me.Nombre = "No hay nombre"
+    End Sub
+
+    Public Sub New(edad As Integer)
+        Me.Edad = edad
     End Sub
 
     Public Sub New(nombre As String, apellido As String, edad As Integer)
