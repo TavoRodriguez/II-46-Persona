@@ -7,7 +7,7 @@
     <asp:TextBox ID="txtEdad"  placeholder ="Edad" runat="server"></asp:TextBox>
     <asp:Button ID="btnCrear" CssClass ="btn btn-primary" runat="server" Text="Crear Persona" OnClick="btnCrear_Click" />
     <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
-    <asp:GridView ID="gvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1" OnRowDeleting ="gvPersonas_RowDeleting" OnRowEditing ="gvPersonas_RowEditing" OnRowCancelingEdit ="gvPersonas_RowCancelingEdit" OnRowUpdating ="gvPersonas_RowUpdating">
+    <asp:GridView ID="gvPersonas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1" OnRowDeleting ="gvPersonas_RowDeleting" OnRowEditing ="gvPersonas_RowEditing" OnRowCancelingEdit ="gvPersonas_RowCancelingEdit" OnRowUpdating ="gvPersonas_RowUpdating" OnSelectedIndexChanged ="gvPersonas_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowSelectButton="true" ControlStyle-CssClass ="btn btn-success"/>
             <asp:CommandField ShowEditButton="true" ControlStyle-CssClass ="btn btn-primary"/>

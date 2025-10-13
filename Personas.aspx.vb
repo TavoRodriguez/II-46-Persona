@@ -28,14 +28,40 @@
     End Sub
 
     Protected Sub gvPersonas_RowEditing(sender As Object, e As GridViewEditEventArgs)
+        Try
 
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Protected Sub gvPersonas_RowCancelingEdit(sender As Object, e As GridViewCancelEditEventArgs)
-
+        Try
+            gvPersonas.EditIndex = -1
+            gvPersonas.DataBind()
+        Catch ex As Exception
+            lblResultado.Text = "Error al cancelar la edición: " & ex.Message
+        End Try
     End Sub
 
     Protected Sub gvPersonas_RowUpdating(sender As Object, e As GridViewUpdateEventArgs)
+        Dim id As Integer = Convert.ToInt32(gvPersonas.DataKeys(e.RowIndex).Value)
+        Dim persona As New Persona With {
+        .Nombre = e.NewValues("NOMBRE").ToString(),
+        .Apellido = e.NewValues("APELLIDO").ToString(),
+        .Edad = Convert.ToInt32(e.NewValues("EDAD")),
+        .Id = id
+        }
+        dbHelper.Update(persona)
+        e.Cancel = True
+        gvPersonas.EditIndex = -1
+        gvPersonas.DataBind()
 
+    End Sub
+
+    Protected Sub gvPersonas_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim id As Integer = Convert.ToInt32(gvPersonas.DataKeys(e.Equals(id)).Value)
+        Dim persona As Persona = New Persona()
+        persona.Nombre
     End Sub
 End Class
