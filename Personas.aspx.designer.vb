@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Personas
 
     '''<summary>
+    '''Control editando.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents editando As Global.System.Web.UI.WebControls.HiddenField
+
+    '''<summary>
     '''Control txtNombre.
     '''</summary>
     '''<remarks>
@@ -48,6 +57,15 @@ Partial Public Class Personas
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents btnCrear As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Control btnActualizar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnActualizar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''Control lblResultado.
