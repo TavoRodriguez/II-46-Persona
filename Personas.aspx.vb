@@ -12,6 +12,30 @@
         Persona.Apellido = txtApellido.Text
         Persona.Edad = Convert.ToInt32(txtEdad.Text)
         dbHelper.Create(Persona)
+        gvPersonas.DataBind()
         lblResultado.Text = "Hola " & Persona.Nombre & " " & Persona.Apellido & ", tienes " & Persona.Edad & " años."
+    End Sub
+
+    Protected Sub gvPersonas_RowDeleting(sender As Object, e As GridViewDeleteEventArgs)
+        Try
+            Dim id As Integer = Convert.ToInt32(gvPersonas.DataKeys(e.RowIndex).Value)
+            dbHelper.Delete(id)
+            e.Cancel = True
+            gvPersonas.DataBind()
+        Catch ex As Exception
+            lblResultado.Text = "Error al eliminar la persona: " & ex.Message
+        End Try
+    End Sub
+
+    Protected Sub gvPersonas_RowEditing(sender As Object, e As GridViewEditEventArgs)
+
+    End Sub
+
+    Protected Sub gvPersonas_RowCancelingEdit(sender As Object, e As GridViewCancelEditEventArgs)
+
+    End Sub
+
+    Protected Sub gvPersonas_RowUpdating(sender As Object, e As GridViewUpdateEventArgs)
+
     End Sub
 End Class
