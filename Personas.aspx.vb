@@ -1,4 +1,5 @@
-﻿Public Class Personas
+﻿Imports Persona.Utils
+Public Class Personas
     Inherits System.Web.UI.Page
     Public Persona As Persona
     Protected dbHelper As New DataBaseHelper()
@@ -8,9 +9,17 @@
 
     Protected Sub btnCrear_Click(sender As Object, e As EventArgs)
         Persona = New Persona()
+        If txtNombre.Text = "" Or txtApellido.Text = "" Or txtEdad.Text = "" Then
+            ShowSwalMessage(Me, "Error", "Por favor, complete todos los campos.", "error")
+            Return
+        End If
         Persona.Nombre = txtNombre.Text
         Persona.Apellido = txtApellido.Text
         Persona.Edad = Convert.ToInt32(txtEdad.Text)
+        If Persona.Edad < 0 Then
+            lblResultado.Text = "La edad no puede ser negativa."
+            Return
+        End If
         dbHelper.Create(Persona)
         gvPersonas.DataBind()
         lblResultado.Text = "Hola " & Persona.Nombre & " " & Persona.Apellido & ", tienes " & Persona.Edad & " años."

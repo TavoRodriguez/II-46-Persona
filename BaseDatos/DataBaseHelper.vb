@@ -1,7 +1,8 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class DataBaseHelper
-    Private ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
+    Public ReadOnly connectionString As String = ConfigurationManager.ConnectionStrings("II-46ConnectionString").ConnectionString
+
 
     Public Function Create(Persona As Persona) As String
         Try

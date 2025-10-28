@@ -11,17 +11,32 @@
                 <div class="mb-3">
                     <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre" runat="server"></asp:TextBox>
                 </div>
+                   <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ValidationGroup="vgPersona" CssClass ="alert alert-warning"
+                    Display ="Dynamic"
+                    ErrorMessage="Se requiere el nombre"
+                    ControlToValidate="txtNombre"></asp:RequiredFieldValidator>
                 <div class="mb-3">
                     <asp:TextBox ID="txtApellido" CssClass="form-control" placeholder="Apellido" runat="server"></asp:TextBox>
                 </div>
+                   <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ValidationGroup="vgPersona" CssClass ="alert alert-warning"
+                    Display ="Dynamic"
+                    ErrorMessage="Se requiere el Apellido"
+                    ControlToValidate="txtNombre"></asp:RequiredFieldValidator>
                 <div class="mb-3">
-                    <asp:TextBox ID="txtEdad" CssClass="form-control" placeholder="Edad" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEdad" CssClass="form-control" placeholder="Edad" runat="server" TextMode="Number"></asp:TextBox>
                 </div>
+                     <asp:RequiredFieldValidator ID="rfvEdad" runat="server" ValidationGroup="vgPersona" CssClass ="alert alert-warning"
+                      Display ="Dynamic"
+                      ErrorMessage="Se requiere la Edad"
+                      ControlToValidate="txtEdad"></asp:RequiredFieldValidator>
                 <div class="mb-3">
-                    <asp:Button ID="btnCrear" CssClass="btn btn-primary me-2" runat="server" Text="Crear Persona" OnClick="btnCrear_Click" />
+                    <asp:Button ID="btnCrear" CssClass="btn btn-primary me-2" runat="server" Text="Crear Persona" OnClick="btnCrear_Click"/>
                     <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar Persona" OnClick="btnActualizar_Click" />
                 </div>
                 <asp:Label ID="lblResultado" CssClass="text-success d-block mb-3" runat="server" Text=""></asp:Label>
+
+                <asp:ValidationSummary ID="vsPersona" runat="server" ShowSummary ="true" CssClass ="alert alert-warning"
+                    HeaderText ="Corrigue los siguientes errores"/>
             </div>
         </div>
 
